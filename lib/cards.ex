@@ -55,13 +55,6 @@ defmodule Cards do
     File.write(filename, binary)
   end
 
-  @spec load(
-          binary
-          | maybe_improper_list(
-              binary | maybe_improper_list(any, binary | []) | char,
-              binary | []
-            )
-        ) :: any
   def load(filename) do
     case File.read(filename) do
       {:ok, binary} -> :erlang.binary_to_term(binary)
